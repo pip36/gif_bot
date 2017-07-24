@@ -6,6 +6,6 @@
     "start": "node bot.js"
   },
   "dependencies": {
-    "twitter": "~1.7.1",
+    "twitter": "~1.7.1"
   }
 }
