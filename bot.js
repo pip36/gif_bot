@@ -39,4 +39,3 @@ var tweet = function(){
 
 
 setInterval(tweet,1000 * 60 * 60);
-setInterval(function(){console.log("test")}, 3000)
