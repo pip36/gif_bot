@@ -37,6 +37,9 @@ var tweet = function(){
   });
 }
 //prevent idling
-setInterval(function(){console.log("ping")}, 1000 * 60 * 10)
+setInterval(function(){
+  http.get("http://thawing-tundra-24474.herokuapp.com");
+  console.log("ping");
+}, 300000)
 //tweet every hour
 setInterval(tweet,1000 * 60 * 60);
