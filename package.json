@@ -7,5 +7,18 @@
   },
   "dependencies": {
     "twitter": "~1.7.1"
-  }
+  },
+  "description": "a twitter bot",
+  "main": "bot.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pip36/gif_bot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pip36/gif_bot/issues"
+  },
+  "homepage": "https://github.com/pip36/gif_bot#readme"
 }
