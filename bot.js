@@ -1,10 +1,10 @@
 var Twitter = require('twitter');
 var request = require('request');
 var client = new Twitter({
-  consumer_key: '',
-  consumer_secret: '',
-  access_token_key: '',
-  access_token_secret: ''
+  consumer_key: ENV['CONSUMER_KEY'],
+  consumer_secret: ENV['CONSUMER_SECRET'],
+  access_token_key: ENV['ACCESS_TOKEN_KEY'],
+  access_token_secret: ENV['ACCESS_TOKEN_SECRET']
 });
 
 var tweet = function(){
@@ -15,7 +15,7 @@ var tweet = function(){
   var rand_descriptor_i = Math.floor(Math.random()*descriptor.length);
   var tweet = descriptor[rand_descriptor_i] + " " + animals[rand_animal_i]
 
-  request('http://api.giphy.com/v1/gifs/translate?s=' + tweet + '&api_key=API_KEY&limit=5', function (error, response, body) {
+  request('http://api.giphy.com/v1/gifs/translate?s=' + tweet + '&api_key='+ENV['GIPHY_API_KEY']+'&limit=5', function (error, response, body) {
       if (!error && response.statusCode == 200) {
         var info = JSON.parse(body);
         gif = info["data"]["bitly_gif_url"]
