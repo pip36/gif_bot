@@ -6,6 +6,10 @@
     "start": "node bot.js"
   },
   "dependencies": {
-    "twitter": "~1.7.1"
+    "twitter": "~1.7.1",
+    "node": "~6.11.1",
+    "npm":  "~3.10.10"
+
+
   }
 }
