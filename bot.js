@@ -31,5 +31,5 @@ var tweet = function(){
   });
 }
 
-tweet();
-//setInterval(tweet,1000 * 60 * 60);
+
+setInterval(tweet,1000 * 60 * 60);
