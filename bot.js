@@ -14,8 +14,9 @@ var client = new Twitter({
 });
 
 var tweet = function(){
-  var animals = ["cat", "dog"];
-  var descriptor = ["black", "white", "huge", "fluffy", "funny", "stupid", "OCD", "blue", "smelly", "angry", "scared", "silly", "excited"];
+  var animals = ["cat"];
+  var descriptor = ["funny", "stupid", "OCD", "angry", "scared", "silly", "excited"];
+  var actions = ["in a box", "flying", "jumping", "taming human", "skiing", "in a hat", "eating"]
   var gif;
   var rand_animal_i = Math.floor(Math.random()*animals.length);
   var rand_descriptor_i = Math.floor(Math.random()*descriptor.length);
@@ -31,7 +32,6 @@ var tweet = function(){
             console.log(error);
           }
           console.log(tweet);  // Tweet body.
-          console.log(response);  // Raw response object.
         });
       }
   });
@@ -39,7 +39,15 @@ var tweet = function(){
 //prevent idling
 setInterval(function(){
   http.get("http://thawing-tundra-24474.herokuapp.com");
-  console.log("ping");
 }, 300000)
 //tweet every hour
 setInterval(tweet,1000 * 60 * 60);
+
+var stream = client.stream('statuses/filter', {track: 'my cat'});
+stream.on('data', function(event) {
+  console.log(event && event.text);
+});
+
+stream.on('error', function(error) {
+  throw error;
+});
