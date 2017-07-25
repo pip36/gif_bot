@@ -20,7 +20,8 @@ var tweet = function(){
   var gif;
   var rand_animal_i = Math.floor(Math.random()*animals.length);
   var rand_descriptor_i = Math.floor(Math.random()*descriptor.length);
-  var tweet = descriptor[rand_descriptor_i] + " " + animals[rand_animal_i]
+  var rand_actions_i = Math.floor(Math.random()*actions.length);
+  var tweet = animals[rand_animal_i] + " " + actions[rand_actions_i]
 
   request('http://api.giphy.com/v1/gifs/translate?s=' + tweet + '&api_key='+process.env.GIPHY_API_KEY+'&limit=5', function (error, response, body) {
       if (!error && response.statusCode == 200) {
