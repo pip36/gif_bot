@@ -48,7 +48,7 @@ var stream = client.stream('statuses/filter', {track: "i'm feeling"});
 stream.on('data', function(event) {
   if (typeof event.text == "string"){
     var text = event.text.toLowerCase();
-    if (text.includes("i'm feeling")){
+    if (text.includes("i'm feeling") && text.slice(0,1) != "rt")){
       console.log(event.text);
     }
   }
