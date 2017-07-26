@@ -44,9 +44,12 @@ setInterval(function(){
 //tweet every hour
 setInterval(tweet,1000 * 60 * 60);
 
-var stream = client.stream('statuses/filter', {track: 'my cat'});
+var stream = client.stream('statuses/filter', {track: 'i feel'});
 stream.on('data', function(event) {
-  console.log(event && event.text);
+  var text = event.text.toLowerCase();
+  if (text.includes('i feel')){
+    console.log(event.text);
+  }
 });
 
 stream.on('error', function(error) {
