@@ -39,16 +39,16 @@ var tweet = function(){
 }
 //prevent idling
 setInterval(function(){
-  http.get("http://thawing-tundra-24474.herokuapp.com");
+  //http.get("http://thawing-tundra-24474.herokuapp.com");
 }, 300000)
 //tweet every hour
-setInterval(tweet,1000 * 60 * 60);
+//setInterval(tweet,1000 * 60 * 60);
 
-var stream = client.stream('statuses/filter', {track: "i'm feeling"});
+var stream = client.stream('statuses/filter', {track: "idea"});
 stream.on('data', function(event) {
   if (typeof event.text == "string"){
     var text = event.text.toLowerCase();
-    if (text.includes("i'm feeling") && event.text.includes("RT") == false){
+    if (text.includes("idea") && event.text.includes("RT") == false){
       console.log(event.text);
     }
   }
